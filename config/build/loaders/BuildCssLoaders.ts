@@ -1,4 +1,4 @@
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export function buildCssLoaders(isDev: boolean) {
     return {
@@ -10,7 +10,8 @@ export function buildCssLoaders(isDev: boolean) {
                 options: {
                     modules: {
                         auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-                        localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:5]',
+                        localIdentName:
+                            isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:5]',
                     },
                 },
             },
