@@ -10,5 +10,7 @@
   "throw error": "throw error",
   "Toggle": "Toggle",
   "Короткий язык": "En",
-  "Войти": "Войти"
+  "Войти": "Войти",
+  "increment": "increment",
+  "decrement": "decrement"
 }
