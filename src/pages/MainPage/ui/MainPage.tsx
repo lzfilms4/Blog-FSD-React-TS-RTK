@@ -13,7 +13,7 @@ const MainPage = () => {
         <div>
             {/* <BugButton /> */}
             {t('Главная страница')}
-            <Input placeholder="Введите текст" value={value} onChange={onChange} />
+            <Input placeholder={t('Введите текст')} value={value} onChange={onChange} />
         </div>
     );
 };
