@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { profileReducer } from 'entityes/Profile';
+import { fetchProfileData, ProfileCard, profileReducer } from 'entityes/Profile';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -9,14 +10,14 @@ const reducers: ReducersList = {
 
 const ProfilePage = () => {
     const { t } = useTranslation();
-    const [value, setValue] = useState('');
-    const onChange = (val:string) => {
-        setValue(val);
-    };
+    const dispatch = useAppDispatch();
+    useEffect(() => {
+        dispatch(fetchProfileData());
+    }, [dispatch]);
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div>
-                {t('Профиль')}
+                <ProfileCard />
             </div>
         </DynamicModuleLoader>
     );
