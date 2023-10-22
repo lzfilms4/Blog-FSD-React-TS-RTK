@@ -2,7 +2,7 @@ import { CounterSchema } from 'entityes/Counter';
 import { UserSchema } from 'entityes/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import {
-    AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
+    AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { ProfileSchema } from 'entityes/Profile';
 import { AxiosInstance } from 'axios';
@@ -32,7 +32,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
     api: AxiosInstance,
-    navigate: (to: To, options?: NavigateOptions) => void
+    navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface ThunkConfig<T> {
