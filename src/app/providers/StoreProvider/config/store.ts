@@ -3,6 +3,7 @@ import { counterReducer } from 'entityes/Counter';
 import { userReducer } from 'entityes/User';
 import { createReducerManager } from './reducerManager';
 import { StateSchema } from './StateSchema';
+import {useDispatch} from "react-redux";
 
 export function createReduxStore(
     initialState?: StateSchema,
@@ -27,3 +28,5 @@ export function createReduxStore(
 
     return store;
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
