@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import loginByUsername from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { fetchProfileData } from '../services/fetchProifleData/fetchProfileData';
 import { Profile, ProfileSchema } from '../types/Profile';
 
@@ -14,6 +14,19 @@ export const profileSlice = createSlice({
     name: 'profile',
     initialState,
     reducers: {
+        setReadonly: (state, action: PayloadAction<boolean>) => {
+            state.readonly = action.payload;
+        },
+        cancelEdit: (state) => {
+            state.readonly = true;
+            state.form = state.data;
+        },
+        updateProfile: (state, action: PayloadAction<Profile>) => {
+            state.form = {
+                ...state.data,
+                ...action.payload,
+            };
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -24,8 +37,24 @@ export const profileSlice = createSlice({
             .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
                 state.isLoading = false;
                 state.data = action.payload;
+                state.form = action.payload;
             })
             .addCase(fetchProfileData.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            });
+        builder
+            .addCase(updateProfileData.pending, (state) => {
+                state.error = undefined;
+                state.isLoading = true;
+            })
+            .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
+                state.isLoading = false;
+                state.data = action.payload;
+                state.form = action.payload;
+                state.readonly = true;
+            })
+            .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
             });
