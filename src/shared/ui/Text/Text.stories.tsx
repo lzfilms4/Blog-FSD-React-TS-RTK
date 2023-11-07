@@ -1,9 +1,6 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import Text, { TextTheme } from './Text';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import Text, { TextSize, TextTheme } from './Text';
 
 export default {
     title: 'shared/Text',
@@ -29,6 +26,12 @@ onlyTitle.args = {
 export const onlyText = Template.bind({});
 onlyText.args = {
     text: 'Text',
+};
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    text: 'Text',
+    size: TextSize.L,
 };
 
 export const Error = Template.bind({});
