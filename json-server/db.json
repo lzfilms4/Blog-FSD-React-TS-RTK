@@ -19,7 +19,10 @@
       "img": "https://usefulangle.com/img/thumb/javascript.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "userId": "1",
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +103,12 @@
       "text": "some comment3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "привет",
+      "id": "jH4A8hr"
     }
   ],
   "users": [
@@ -118,14 +127,28 @@
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     }
   ],
-  "profile": {
-    "first": "Vlads",
-    "lastname": "lzfilms",
-    "age": 22,
-    "currency": "EUR",
-    "country": "Russia",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Vlads",
+      "lastname": "lzfilms",
+      "age": 22,
+      "currency": "EUR",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "id": "2",
+      "first": "lzfilms",
+      "lastname": "lzfilms123",
+      "age": 12,
+      "currency": "EUR",
+      "country": "USA",
+      "city": "Moscow",
+      "username": "lzfilms",
+      "avatar": "https://ru-static.z-dn.net/files/ddf/9a4d30d8705b9fab1e840cf35c1016de.jpg"
+    }
+  ]
 }

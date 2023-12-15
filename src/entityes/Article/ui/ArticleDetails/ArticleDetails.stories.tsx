@@ -23,6 +23,11 @@ const article: Article = {
     img: 'https://usefulangle.com/img/thumb/javascript.png',
     views: 1022,
     createdAt: '26.02.2022',
+    user: {
+        id: '1',
+        username: 'test',
+        avatar: 'https://usefulangle.com/img/thumb/javascript.png',
+    },
     type: [ArticleType.IT],
     blocks: [
         {
