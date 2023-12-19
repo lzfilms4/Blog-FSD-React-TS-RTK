@@ -24,16 +24,6 @@ const getSkeletons = (view: ArticleView) => (
 const ArticleList = memo(({
     className, articles, isLoading, view = ArticleView.SMALL,
 }: ArticleListItemProps) => {
-    const { t } = useTranslation();
-
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                {getSkeletons(view)}
-            </div>
-        );
-    }
-
     const renderArticle = (article: Article) => (
         <ArticleListItem article={article} view={view} key={article.id} className={cls.card} />
     );
@@ -43,6 +33,7 @@ const ArticleList = memo(({
             {articles.length > 0
                 ? articles.map(renderArticle)
                 : null}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 });

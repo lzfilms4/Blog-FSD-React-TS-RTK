@@ -28,7 +28,7 @@ const CommentList = memo(({ className, comments, isLoading }: CommentListProps) 
         <div className={classNames(cls.CommentList, {}, [className])}>
             {comments?.length
                 ? comments.map((comment) => (
-                    <CommentCard className={cls.comment} comment={comment} isLoading={isLoading} />
+                    <CommentCard key={comment.id} className={cls.comment} comment={comment} isLoading={isLoading} />
                 ))
                 : <TextField title={t('Комментарии отсутствуют')} />}
         </div>
